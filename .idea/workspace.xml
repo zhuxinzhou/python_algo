@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="780be6c7-865b-49ec-a3e6-d4f65aee945c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/else/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/else/spider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leecode/002.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leecode/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sort/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sort/sort.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/else/test_quicksort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +189,7 @@
       <workItem from="1625723811356" duration="4103000" />
       <workItem from="1625970301999" duration="660000" />
       <workItem from="1626007911363" duration="7582000" />
-      <workItem from="1626660364084" duration="14471000" />
+      <workItem from="1626660364084" duration="18732000" />
     </task>
     <servers />
   </component>
