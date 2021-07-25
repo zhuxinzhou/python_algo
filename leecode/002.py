@@ -15,93 +15,94 @@
 链接：https://leetcode-cn.com/problems/add-two-numbers
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 '''
+# Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-class List(object):
-    def __init__(self, first=None):
-        self.first = first
-    def insert_to_head(self,val):
-        node=ListNode(val)
-        node.next=self.first
-        self.first=node
-    def get(self):
-        return self.first
+# class Solution(object):
+#     def addTwoNumbers(self, l1, l2):
+#         """
+#         :type l1: ListNode
+#         :type l2: ListNode
+#         :rtype: ListNode
+#         """
+#         p1=l1
+#         p2=l2
+#         jinwei=0
+#         head=None
+#         while p1 or p2:
+#             #获取两个的值
+#             key1=p1.val if p1 else 0
+#             key2=p2.val if p2 else 0
+#             sum=0
+#             if jinwei==0:
+#                 sum=key1+key2
+#             else:
+#                 sum=key1+key2+jinwei
+#                 jinwei=0
+#             new_node_val=0
+#             if sum>=10:
+#                 #超出了
+#                 new_node_val=sum-10
+#                 jinwei=1
+#             else:
+#                 new_node_val=sum
+#             new_node=ListNode(new_node_val,None)
+#             if head==None:
+#                 head=new_node
+#             else:
+#                 p=head
+#                 while p.next:
+#                     p=p.next
+#                 p.next=new_node
+#             p1=p1.next if p1 else None
+#             p2=p2.next if p2 else None
+#
+#         if jinwei:
+#             new_node=ListNode(1)
+#             p = head
+#             while p.next:
+#                 p = p.next
+#             p.next = new_node
+#
+#         return head
 
+
+#滑动窗口解法
 class Solution(object):
-    def addTwoNumbers(self, l1, l2):
+    def lengthOfLongestSubstring(self, s):
         """
-        :type lx1: ListNode
-        :type lx2: ListNode
-        :rtype: ListNode
+        :type s: str
+        :rtype: int
         """
-        lx1=[]
-        lx2=[]
-        while l1.next:
-            lx1.append(l1.val)
-            l1=l1.next
-        lx1.append(l1.val)
-        while l2.next:
-            lx2.append(l2.val)
-            l2 = l2.next
-        lx2.append(l2.val)
-        length1=len(lx1)
-        length2=len(lx2)
+        left=0
+        right=0
+        max=0
+        tem={}
+        length=len(s)
+        for i in s:
+            tem[i]=0
+        le=0
+        flag=0
+        while left<=right and right<length:
+            if tem[s[right]]==0:
+                tem[s[right]]=1
+                right=right+1
+                le=le+1
+            else:
+                if le>max:
+                    max=le
+                    flag=1
+                le=le-1
+                tem[s[left]]=0
+                left=left+1
+        if le > max:
+            max = le
+            flag = 1
+        if flag==0:
+            max=length
+        return max
 
-        nums1 = 0
-        for i in range(length1):
-            key1 = lx1[length1 - 1 - i]
-            beishu = 1
-
-            for t in range(length1 - i - 1):
-                beishu = 10 * beishu
-            print(key1 * beishu)
-            nums1 = key1 * beishu + nums1
-
-        nums2 = 0
-        for i in range(length2):
-            key2 = lx2[length2 - 1 - i]
-            beishu = 1
-
-            for t in range(length2 - i - 1):
-                beishu = 10 * beishu
-            print(key2 * beishu)
-            nums2 = key2 * beishu + nums2
-
-        res=nums1+nums2
-        res=str(res)
-        leres=len(res)
-        print('here',res)
-        result=[]
-        linklist=List()
-        for i in range(leres):
-            linklist.insert_to_head(int(res[i]))
-
-
-
-
-
-        return linklist.get()
-
-
-linklist = List()
-l1=[2,3,4]
-for i in range(len(l1)):
-    linklist.insert_to_head(l1[i])
-lx1=[]
-l1=linklist.get()
-while l1.next:
-      lx1.append(l1.val)
-      l1=l1.next
-lx1.append(l1.val)
-print(lx1)
-l2=l1
-so=Solution()
-l1=so.addTwoNumbers(l1,l2)
-lx1=[]
-while l1.next:
-      lx1.append(l1.val)
-      l1=l1.next
-
-print(lx1)
+s=Solution()
+s.lengthOfLongestSubstring("aab")
