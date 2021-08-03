@@ -14,3 +14,11 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import datetime
+
+now = datetime.datetime.now()
+
+last_week_start = now - datetime.timedelta(days=now.weekday()+7)
+for i in range(1, 7):
+    day=now - datetime.timedelta(days=now.weekday()+7-i)
+    print(day)
