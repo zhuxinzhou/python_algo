@@ -17,8 +17,8 @@ if __name__ == '__main__':
 import datetime
 
 now = datetime.datetime.now()
+day = now.weekday()
 
-last_week_start = now - datetime.timedelta(days=now.weekday()+7)
-for i in range(1, 7):
-    day=now - datetime.timedelta(days=now.weekday()+7-i)
-    print(day)
+print(day)
+import requests
+
